@@ -24,26 +24,6 @@ public class MyActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        System.out.println("In here. yaay!");
-
-        HttpClient httpClient = new DefaultHttpClient();
-        String result;
-        try {
-            result = httpClient.execute(
-                    new HttpGet("http://128.237.223.111:9979/ml_server/model/get"), new BasicResponseHandler());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(new StringBufferInputStream(result));
-            NaiveBayesUpdateable naiveBayesUpdateable = (NaiveBayesUpdateable)ois.readObject();
-            System.out.println(naiveBayesUpdateable.toString());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println("In Weka Activity. Started. yaay!");
     }
 }
